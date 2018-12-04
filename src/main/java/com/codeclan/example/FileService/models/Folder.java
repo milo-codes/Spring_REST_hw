@@ -27,9 +27,27 @@ public class Folder {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-//    files list
+    //    files list
     @OneToMany(mappedBy = "folder")
     private List<File> files;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<File> getFiles() {
+        return files;
+    }
+
+    public void setFiles(List<File> files) {
+        this.files = files;
+    }
+
+
 
 
 }

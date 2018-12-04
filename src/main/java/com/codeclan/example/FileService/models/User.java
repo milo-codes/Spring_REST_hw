@@ -18,6 +18,14 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Folder> folders;
 
+    public List<Folder> getFolders() {
+        return folders;
+    }
+
+    public void setFolders(List<Folder> folders) {
+        this.folders = folders;
+    }
+
     public String getName() {
         return name;
     }
