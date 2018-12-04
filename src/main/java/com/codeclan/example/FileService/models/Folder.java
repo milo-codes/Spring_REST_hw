@@ -10,6 +10,14 @@ public class Folder {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     @Column(name = "title")
     private String title;
 
