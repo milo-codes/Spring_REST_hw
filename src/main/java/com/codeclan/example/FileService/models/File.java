@@ -10,14 +10,6 @@ public class File {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Folder getFolder() {
-        return folder;
-    }
-
-    public void setFolder(Folder folder) {
-        this.folder = folder;
-    }
-
     @Column(name = "name")
     private String name;
 
@@ -31,6 +23,25 @@ public class File {
     @ManyToOne
     @JoinColumn(name = "folder_id", nullable = false)
     private Folder folder;
+
+
+    public File(String name, String extension, int size, Folder folder) {
+        this.name = name;
+        this.extension = extension;
+        this.size = size;
+        this.folder = folder;
+    }
+
+    public File() {}
+
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
+    }
 
     public String getName() {
         return name;

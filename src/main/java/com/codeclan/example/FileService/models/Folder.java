@@ -1,6 +1,7 @@
 package com.codeclan.example.FileService.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -10,14 +11,6 @@ public class Folder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
 
     @Column(name = "title")
     private String title;
@@ -30,6 +23,24 @@ public class Folder {
     //    files list
     @OneToMany(mappedBy = "folder")
     private List<File> files;
+
+
+    public Folder(String title, User user) {
+        this.title = title;
+        this.user = user;
+        this.files = new ArrayList<>();
+    }
+
+    public Folder() {}
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public User getUser() {
         return user;
