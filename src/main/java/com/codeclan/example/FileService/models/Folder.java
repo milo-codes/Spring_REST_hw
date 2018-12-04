@@ -1,6 +1,7 @@
 package com.codeclan.example.FileService.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "folders")
@@ -22,7 +23,13 @@ public class Folder {
     private String title;
 
 //    user id
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
 //    files list
+    @OneToMany(mappedBy = "folder")
+    private List<File> files;
+
 
 }

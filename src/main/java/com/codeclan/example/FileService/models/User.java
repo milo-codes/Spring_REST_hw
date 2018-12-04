@@ -1,6 +1,7 @@
 package com.codeclan.example.FileService.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -14,6 +15,8 @@ public class User {
     private String name;
 
 //    folders list
+    @OneToMany(mappedBy = "user")
+    private List<Folder> folders;
 
     public String getName() {
         return name;

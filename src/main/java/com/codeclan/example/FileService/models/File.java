@@ -19,6 +19,11 @@ public class File {
     @Column(name = "size")
     private int size;
 
+    //    folder id
+    @ManyToOne
+    @JoinColumn(name = "folder_id", nullable = false)
+    private Folder folder;
+
     public String getName() {
         return name;
     }
@@ -42,6 +47,6 @@ public class File {
     public void setSize(int size) {
         this.size = size;
     }
-//    folder id
+
 
 }
